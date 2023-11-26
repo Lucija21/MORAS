@@ -1,0 +1,89 @@
+CHIP Clz
+
+{
+
+    IN in[16];
+    OUT out[16];
+
+    PARTS:
+	//od 16. do 1. bita
+    
+    Or(a = in[15], b = false, out = out0or);
+    Not(in = out0or, out = out0);
+    Add16(a[0] = out0, a[1..15] = false, b = false, out = suma0);
+	
+    Or(a = in[14], b = false, out = out1or);
+    Not(in = out1or, out = out1not);
+    And(a = out1not, b = out0, out = out1);
+    Add16(a[0] = out1, a[1..15] = false, b = suma0, out = suma1);
+	
+    Or(a = in[13], b = false, out = out2or);
+    Not(in = out2or, out = out2not);
+    And(a = out2not, b = out1, out = out2);
+    Add16(a[0] = out2, a[1..15] = false, b = suma1, out = suma2);
+    
+    Or(a = in[12], b = false, out = out3or);
+    Not(in = out3or, out = out3not);
+    And(a = out3not, b = out2, out = out3);
+    Add16(a[0] = out3, a[1..15] = false, b = suma2, out = suma3);
+    
+    Or(a = in[11], b = false, out = out4or);
+    Not(in = out4or, out = out4not);
+    And(a = out4not, b = out3, out = out4);
+    Add16(a[0] = out4, a[1..15] = false, b = suma3, out = suma4);
+    
+    Or(a = in[10], b = false, out = out5or);
+    Not(in = out5or, out = out5not);
+    And(a = out5not, b = out4, out = out5);
+    Add16(a[0] = out5, a[1..15] = false, b = suma4, out = suma5);
+    
+    Or(a = in[9], b = false, out = out6or);
+    Not(in = out6or, out = out6not);
+    And(a = out6not, b = out5, out = out6);
+    Add16(a[0] = out6, a[1..15] = false, b = suma5, out = suma6);
+    
+    Or(a = in[8], b = false, out = out7or);
+    Not(in = out7or, out = out7not);
+    And(a = out7not, b = out6, out = out7);
+    Add16(a[0] = out7, a[1..15] = false, b = suma6, out = suma7);
+	
+    Or(a = in[7], b = false, out = out8or);
+    Not(in = out8or, out = out8not);
+    And(a = out8not, b = out7, out = out8);
+    Add16(a[0] = out8, a[1..15] = false, b = suma7, out = suma8);
+    
+    Or(a = in[6], b = false, out = out9or);
+    Not(in = out9or, out = out9not);
+    And(a = out9not, b = out8, out = out9);
+    Add16(a[0] = out9, a[1..15] = false, b = suma8, out = suma9);
+    
+    Or(a = in[5], b = false, out = out10or);
+    Not(in = out10or, out = out10not);
+    And(a = out10not, b = out9, out = out10);
+    Add16(a[0] = out10, a[1..15] = false, b = suma9, out = suma10);
+    
+    Or(a = in[4], b = false, out = out11or);
+    Not(in = out11or, out = out11not);
+    And(a = out11not, b = out10, out = out11);
+    Add16(a[0] = out11, a[1..15] = false, b = suma10, out = suma11);
+    
+    Or(a = in[3], b = false, out = out12or);
+    Not(in = out12or, out = out12not);
+    And(a = out12not, b = out11, out = out12);
+    Add16(a[0] = out12, a[1..15] = false, b = suma11, out = suma12);
+    
+    Or(a = in[2], b = false, out = out13or);
+    Not(in = out13or, out = out13not);
+    And(a = out13not, b = out12, out = out13);
+    Add16(a[0] = out13, a[1..15] = false, b = suma12, out = suma13);
+    
+    Or(a = in[1], b = false, out = out14or);
+    Not(in = out14or, out = out14not);
+    And(a = out14not, b = out13, out = out14);
+    Add16(a[0] = out14, a[1..15] = false, b = suma13, out = suma14);
+    
+    Or(a = in[0], b = false, out = out15or);
+    Not(in = out15or, out = out15not);
+    And(a = out15not, b = out14, out = out15);
+    Add16(a[0] = out15, a[1..15] = false, b = suma14, out = out);
+}
