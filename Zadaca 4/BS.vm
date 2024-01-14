@@ -1,0 +1,47 @@
+push argument 0
+push argument 1
+push argument 2
+
+push 0
+push argument 1
+
+label search_loop
+push 0
+lt
+if-goto not_found
+
+push 1
+div
+add
+
+load
+
+push argument 2
+eq
+
+if-goto found
+
+push argument 2
+lt
+if-goto lower_half
+
+push argument 2
+gt
+if-goto upper_half
+
+label lower_half
+swap
+dec
+swap
+goto search_loop
+
+label upper_half
+inc
+goto search_loop
+
+label found
+return
+
+label not_found
+push -1
+return

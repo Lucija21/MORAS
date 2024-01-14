@@ -1,0 +1,27 @@
+function max 3
+	push argument 0
+	pop local 0
+
+	push local 0
+	push argument 1
+	gt 
+	if-goto bma
+
+	push argument 1
+	pop local 0
+
+
+label bma
+	
+	push local 0
+	push argument 2
+	gt
+	if-goto maxx
+
+	push argument 2
+	pop local 0
+
+
+label maxx
+	push local 0
+	return
